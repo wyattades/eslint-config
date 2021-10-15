@@ -1,0 +1,6 @@
+{
+  "include": ["./test"],
+  "compilerOptions": {
+    "strict": true
+  }
+}

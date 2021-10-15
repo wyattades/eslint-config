@@ -1,0 +1,62 @@
+{
+  "name": "@wyattades/eslint-config-pretty",
+  "version": "0.1.0",
+  "description": "ESLint configuration for TypeScript projects",
+  "keywords": [
+    "typescript",
+    "eslint",
+    "eslintconfig",
+    "airbnb",
+    "react.js"
+  ],
+  "homepage": "https://github.com/wyattades/eslint-config-pretty#readme",
+  "bugs": {
+    "url": "https://github.com/wyattades/eslint-config-pretty/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wyattades/eslint-config-pretty.git"
+  },
+  "license": "MIT",
+  "author": "Wyatt Ades <me@wyattades.com>",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "eslint test/good.* && for t in test/bad.*; do ! eslint $t; done && echo TESTS PASSED"
+  },
+  "eslintConfig": {
+    "extends": "./index.js"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint-config-airbnb-typescript": "^14.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jest": "^25.2.1",
+    "eslint-plugin-jest-formatting": "^3.0.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.26.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.2",
+    "eslint": "^8.0.1",
+    "jest": "^27.2.5",
+    "prettier": "2.4.1",
+    "react": "^17.0.2",
+    "typescript": "^4.4.4"
+  },
+  "peerDependencies": {
+    "eslint": ">=8",
+    "jest": ">=27",
+    "prettier": ">=2",
+    "react": ">=17",
+    "typescript": ">=4"
+  }
+}
