@@ -1,6 +1,6 @@
 {
   "name": "@wyattades/eslint-config-pretty",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "ESLint configuration for TypeScript projects",
   "keywords": [
     "typescript",
@@ -24,7 +24,7 @@
     "index.js"
   ],
   "scripts": {
-    "test": "eslint test/good.* && for t in test/bad.*; do ! eslint $t; done && echo TESTS PASSED"
+    "test": "eslint test/pass/* && for t in test/fail/*; do ! eslint $t; done && echo TESTS PASSED"
   },
   "eslintConfig": {
     "extends": "./index.js"
