@@ -1,6 +1,6 @@
 {
   "name": "@wyattades/eslint-config-pretty",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "ESLint configuration for TypeScript projects",
   "keywords": [
     "typescript",
@@ -24,7 +24,7 @@
     "index.js"
   ],
   "scripts": {
-    "test": "eslint test/pass/* && for t in test/fail/*; do ! eslint $t; done && echo TESTS PASSED"
+    "test": "./test/run.sh"
   },
   "eslintConfig": {
     "extends": "./index.js"
@@ -41,11 +41,12 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.26.1",
-    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-react-hooks": "^4.2.1-alpha-930c9e7ee-20211015",
     "eslint-plugin-simple-import-sort": "^7.0.0"
   },
   "devDependencies": {
     "@types/jest": "^27.0.2",
+    "@types/react": "^17.0.30",
     "eslint": "^8.0.1",
     "jest": "^27.2.5",
     "prettier": "2.4.1",
@@ -54,9 +55,9 @@
   },
   "peerDependencies": {
     "eslint": ">=8",
-    "jest": ">=27",
+    "jest": ">=26",
     "prettier": ">=2",
-    "react": ">=17",
+    "react": ">=16",
     "typescript": ">=4"
   }
 }

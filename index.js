@@ -6,6 +6,8 @@ module.exports = {
     "plugin:jest-formatting/recommended",
     "prettier",
     "plugin:prettier/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -85,10 +87,10 @@ module.exports = {
   },
   settings: {
     jest: {
-      version: "27",
+      version: "detect",
     },
     react: {
-      version: "17",
+      version: "detect",
     },
   },
 };
