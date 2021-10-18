@@ -8,6 +8,9 @@
     "isolatedModules": true,
     "incremental": true,
     "strict": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "*": ["./*", "./node_modules/*"]
+    }
   }
 }
