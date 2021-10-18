@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
-export const Comp = () => {
-  const [foo, _setFoo] = useState(0);
+export const Comp: React.FC<{ initFoo: number }> = ({ initFoo }) => {
+  const [foo, _setFoo] = useState(initFoo);
 
   useEffect(() => {
     console.log(foo);
   }, [foo]);
+
+  return <>{foo}</>;
 };

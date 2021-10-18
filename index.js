@@ -8,15 +8,17 @@ module.exports = {
     "plugin:prettier/recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
+    "plugin:import/recommended",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     project: "tsconfig.json",
   },
-  plugins: ["eslint-plugin-import"],
   rules: {
+    // prettier:
     "prettier/prettier": "warn",
 
+    // typescript:
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-use-before-define": "off",
@@ -34,6 +36,24 @@ module.exports = {
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/lines-between-class-members": "off",
 
+    // eslint-plugin-import:
+    "import/prefer-default-export": 0,
+    "import/no-mutable-exports": 1,
+    "import/extensions": 0,
+    "import/no-duplicates": 2,
+    "import/newline-after-import": 1,
+    "import/order": [
+      1,
+      {
+        groups: [["builtin", "external"], "internal"],
+        "newlines-between": "always-and-inside-groups",
+      },
+    ],
+
+    // react:
+    "react/prop-types": "off", // this is debatable, but I just don't like the `prop-types` pattern
+
+    // eslint:
     "class-methods-use-this": "off",
     "no-continue": "off",
     "no-plusplus": "off",
@@ -41,11 +61,6 @@ module.exports = {
     radix: "off",
     "no-restricted-syntax": [
       "error",
-      // {
-      //   selector: "ForInStatement",
-      //   message:
-      //     "for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array.",
-      // },
       {
         selector: "LabeledStatement",
         message:
@@ -63,27 +78,6 @@ module.exports = {
         ignoreReadBeforeAssign: true,
       },
     ],
-
-    "import/prefer-default-export": 0,
-    "import/no-mutable-exports": 1,
-    // "import/no-unresolved": [2, { "ignore": ["\\.(png|jpg|svg)\\?(lqip)$"] }],
-    "import/extensions": 0,
-    "import/no-duplicates": 2,
-    "import/newline-after-import": 1,
-    "import/order": [
-      1,
-      {
-        groups: [["builtin", "external"], "internal"],
-        "newlines-between": "always-and-inside-groups",
-      },
-    ],
-
-    // unsupported rules:
-    "react/jsx-filename-extension": "off",
-    // "import/no-extraneous-dependencies": "off",
-    // "import/extensions": "off",
-    // "import/prefer-default-export": "off",
-    "react/forbid-prop-types": "off",
   },
   settings: {
     jest: {
