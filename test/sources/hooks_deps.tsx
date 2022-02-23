@@ -1,3 +1,5 @@
+// eslint-warn: react-hooks/exhaustive-deps
+
 import { useEffect, useState } from "react";
 
 export const Comp = () => {

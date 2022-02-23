@@ -25,7 +25,7 @@
     "index.js"
   ],
   "scripts": {
-    "test": "./test/run.sh"
+    "test": "cd test && node ./runTests.mjs"
   },
   "eslintConfig": {
     "extends": "./index.js"
