@@ -1,18 +1,26 @@
 module.exports = {
   extends: [
     "plugin:@typescript-eslint/recommended",
-    "airbnb-typescript",
     "plugin:jest/recommended",
     "plugin:jest-formatting/recommended",
-    "prettier",
-    "plugin:prettier/recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:import/recommended",
+    "plugin:jsx-a11y/recommended",
+
+    "airbnb-typescript",
+
+    "prettier",
+    "plugin:prettier/recommended",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     project: "tsconfig.json",
+  },
+  // assumes isomorphic (client + server) environment
+  env: {
+    node: true,
+    browser: true,
   },
   rules: {
     // prettier:
@@ -24,12 +32,12 @@ module.exports = {
     "@typescript-eslint/no-use-before-define": "error",
     "@typescript-eslint/naming-convention": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
-    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/no-explicit-any": "off", // user's will likely want to override this
     "@typescript-eslint/no-unused-vars": [
       "warn",
       {
         argsIgnorePattern: "^_",
-        varsIgnorePattern: "^_",
+        varsIgnorePattern: "^_[^$]",
       },
     ],
     "@typescript-eslint/no-loop-func": "off",
@@ -37,13 +45,13 @@ module.exports = {
     "@typescript-eslint/lines-between-class-members": "off",
 
     // eslint-plugin-import:
-    "import/prefer-default-export": 0,
-    "import/no-mutable-exports": 1,
-    "import/extensions": 0,
-    "import/no-duplicates": 2,
-    "import/newline-after-import": 1,
+    "import/prefer-default-export": "off",
+    "import/no-mutable-exports": "warn",
+    "import/extensions": "off",
+    "import/no-duplicates": "error",
+    "import/newline-after-import": "warn",
     "import/order": [
-      1,
+      "warn",
       {
         groups: [["builtin", "external"], "internal"],
         "newlines-between": "always-and-inside-groups",
@@ -51,9 +59,11 @@ module.exports = {
     ],
 
     // react:
-    "react/prop-types": "off", // this is debatable, but I just don't like the `prop-types` pattern
+    "react/prop-types": "off", // this is debatable, but I just don't like the `prop-types` library
+    "react/react-in-jsx-scope": "off", // obsolete b/c of: `@babel/preset-react", { "runtime": "automatic" }`
 
     // eslint:
+    "no-undef": "error",
     "class-methods-use-this": "off",
     "no-continue": "off",
     "no-plusplus": "off",
@@ -73,12 +83,20 @@ module.exports = {
       },
     ],
     "prefer-const": [
-      "error",
+      "warn",
       {
         ignoreReadBeforeAssign: true,
       },
     ],
   },
+  overrides: [
+    {
+      files: ["*.ts", "*.tsx"],
+      rules: {
+        "no-undef": "off", // handled by typescript
+      },
+    },
+  ],
   settings: {
     jest: {
       version: "detect",
