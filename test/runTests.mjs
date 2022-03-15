@@ -9,7 +9,7 @@ import chalk from "chalk";
 (async () => {
   const eslint = new ESLint({
     // be explicit about which config we are using
-    overrideConfigFile: path.resolve("./.eslintrc"),
+    overrideConfigFile: path.resolve(".eslintrc"),
   });
 
   const globPattern = "{sources,with-nested}/*.{js,ts,jsx,tsx}";
@@ -35,7 +35,7 @@ import chalk from "chalk";
       .filter(Boolean);
 
     return {
-      fileLabel: filePath,
+      fileLabel: path.join("test", filePath),
       filePath: absPath,
       expects: _.sortBy(expects, "ruleId", "severity"),
     };

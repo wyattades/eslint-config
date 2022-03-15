@@ -1,5 +1,14 @@
 {
   "extends": "../index.js",
+  // TODO: there may be a better way to still enable this rule in nested packages...
+  "overrides": [
+    {
+      "files": ["with-nested/**/*"],
+      "rules": {
+        "import/no-extraneous-dependencies": "off"
+      }
+    }
+  ],
   "parserOptions": {
     "project": ["tsconfig.json", "with-nested/tsconfig.json"]
   }

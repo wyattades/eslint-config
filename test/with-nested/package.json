@@ -1,0 +1,10 @@
+{
+  "name": "with-nested",
+  "private": true,
+  "dependencies": {
+    "react": "whatever"
+  },
+  "devDependencies": {
+    "@types/react": "whatever"
+  }
+}
