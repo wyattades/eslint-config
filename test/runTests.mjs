@@ -47,7 +47,14 @@ import chalk from "chalk";
     passed = 0;
   for (const exp of expectations) {
     console.log(
-      `File ${exp.fileLabel} should have ${exp.expects.length} eslint messages`
+      `${chalk.bold(exp.fileLabel)} should have ${
+        exp.expects.length > 0
+          ? _.map(
+              _.countBy(exp.expects, "severity"),
+              (count, severity) => `${count} ${severity}(s)`
+            ).join(", ")
+          : "no problems"
+      }`
     );
 
     const res = results.find((r) => exp.filePath === r.filePath);
