@@ -1,6 +1,6 @@
 {
-  "name": "eslint-config-pretty",
-  "version": "0.7.0",
+  "name": "@wyattades/eslint-config",
+  "version": "0.8.0",
   "description": "ESLint configuration for TypeScript projects",
   "keywords": [
     "typescript",

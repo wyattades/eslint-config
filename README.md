@@ -1,8 +1,8 @@
-# eslint-config-pretty
+# @wyattades/eslint-config
 
 ## ESLint configuration for TypeScript, Prettier, React, Jest
 
-This the base [ESLint](https://eslint.org/) configuration I use in personal TypeScript projects.
+This the base [ESLint](https://eslint.org/) configuration I use in personal projects.
 
 ✔ Extends the popular [Airbnb Style Guide](https://github.com/airbnb/javascript)
 
@@ -10,12 +10,14 @@ This the base [ESLint](https://eslint.org/) configuration I use in personal Type
 
 ✔ Provides additional linting for [Jest](https://jestjs.io/), [React](https://reactjs.org/)
 
+✔ Supports nested project directories with global imports
+
 ### Usage
 
 1. Install the package and its minimum required peer dependencies:
 
    ```bash
-   yarn add -D https://github.com/wyattades/eslint-config-pretty eslint prettier
+   yarn add -D @wyattades/eslint-config eslint prettier
    ```
 
    Additional packages are _optional_:
@@ -28,7 +30,7 @@ This the base [ESLint](https://eslint.org/) configuration I use in personal Type
 
    ```json
    {
-     "extends": "pretty"
+     "extends": "@wyattades/eslint-config"
    }
    ```
 
