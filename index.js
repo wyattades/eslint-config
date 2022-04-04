@@ -1,5 +1,6 @@
 module.exports = {
   extends: [
+    "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:jest/recommended",
     "plugin:jest-formatting/recommended",
@@ -64,6 +65,12 @@ module.exports = {
 
     // eslint:
     "no-undef": "error",
+    "no-empty": [
+      "error",
+      {
+        allowEmptyCatch: true,
+      },
+    ],
     "class-methods-use-this": "off",
     "no-continue": "off",
     "no-plusplus": "off",

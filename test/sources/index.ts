@@ -1,3 +1,7 @@
+import { noop } from "imported/foo";
+
+noop();
+
 const _wow = true;
 
 const foo = 123;
