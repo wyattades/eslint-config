@@ -10,13 +10,13 @@
     "airbnb",
     "react.js"
   ],
-  "homepage": "https://github.com/wyattades/eslint-config-pretty#readme",
+  "homepage": "https://github.com/wyattades/eslint-config#readme",
   "bugs": {
-    "url": "https://github.com/wyattades/eslint-config-pretty/issues"
+    "url": "https://github.com/wyattades/eslint-config/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wyattades/eslint-config-pretty.git"
+    "url": "git+https://github.com/wyattades/eslint-config.git"
   },
   "license": "MIT",
   "author": "Wyatt Ades <me@wyattades.com>",
