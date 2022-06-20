@@ -64,6 +64,7 @@ module.exports = {
     "react/react-in-jsx-scope": "off", // obsolete b/c of: `@babel/preset-react", { "runtime": "automatic" }`
 
     // eslint:
+    "no-var": "error",
     "no-undef": "error",
     "no-empty": [
       "error",
