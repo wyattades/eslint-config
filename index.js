@@ -95,6 +95,7 @@ module.exports = {
         ignoreReadBeforeAssign: true,
       },
     ],
+    eqeqeq: ["error", "always", { null: "ignore" }],
   },
   overrides: [
     {
