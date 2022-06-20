@@ -7,5 +7,5 @@ export const Comp: React.FC<{ initFoo: number }> = ({ initFoo }) => {
     console.log(foo);
   }, [foo]);
 
-  return <>{foo}</>;
+  return foo;
 };
