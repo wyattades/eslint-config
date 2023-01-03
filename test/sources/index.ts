@@ -14,4 +14,8 @@ const fn = () => {
 
 initializeAfterUse = 123;
 
-export { foo, fn };
+type TestSatisfiesT = { testSatisfies: number };
+
+const bar = { testSatisfies: 42 } satisfies TestSatisfiesT;
+
+export { foo, bar, fn };

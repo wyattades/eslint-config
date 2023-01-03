@@ -59,6 +59,15 @@ module.exports = {
         "newlines-between": "always-and-inside-groups",
       },
     ],
+    "no-restricted-exports": [
+      "error",
+      {
+        restrictedNamedExports: [
+          // "default", allow `export { default } from '...'`
+          "then",
+        ],
+      },
+    ],
 
     // react:
     "react/prop-types": "off", // this is debatable, but I just don't like the `prop-types` library
