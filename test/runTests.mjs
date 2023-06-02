@@ -3,7 +3,7 @@ import path from "path";
 
 import _ from "lodash";
 import { ESLint } from "eslint";
-import glob from "glob";
+import * as glob from "glob";
 import chalk from "chalk";
 
 (async () => {

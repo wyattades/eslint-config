@@ -2,6 +2,7 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:jest/recommended",
     "plugin:jest-formatting/recommended",
     "plugin:react/recommended",
@@ -45,6 +46,12 @@ module.exports = {
     "@typescript-eslint/no-loop-func": "off",
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/lines-between-class-members": "off",
+
+    // these are a bit higher level of strictness than I like
+    "@typescript-eslint/no-unsafe-argument": "off",
+    "@typescript-eslint/no-unsafe-member-access": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/no-unsafe-call": "off",
 
     // eslint-plugin-import:
     "import/prefer-default-export": "off",
@@ -115,7 +122,8 @@ module.exports = {
       },
     ],
     "no-underscore-dangle": "off",
-    "no-console": "off",
+    "no-console": "warn",
+    "no-void": "off",
     "class-methods-use-this": "off",
     "no-continue": "off",
     "no-plusplus": "off",
