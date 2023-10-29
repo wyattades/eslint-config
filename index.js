@@ -2,7 +2,8 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:@typescript-eslint/recommended-type-checked",
+    "plugin:@typescript-eslint/stylistic-type-checked",
     "plugin:jest/recommended",
     "plugin:jest-formatting/recommended",
     "plugin:react/recommended",
@@ -35,7 +36,7 @@ module.exports = {
     "@typescript-eslint/no-use-before-define": "error",
     "@typescript-eslint/naming-convention": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
-    "@typescript-eslint/no-explicit-any": "off", // user's will likely want to override this
+
     "@typescript-eslint/no-unused-vars": [
       "warn",
       {
@@ -46,12 +47,24 @@ module.exports = {
     "@typescript-eslint/no-loop-func": "off",
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/lines-between-class-members": "off",
+    "@typescript-eslint/consistent-type-definitions": ["warn", "type"],
+    "@typescript-eslint/restrict-template-expressions": [
+      "error",
+      {
+        allowNumber: true,
+        allowBoolean: true,
+        allowAny: false,
+        allowNullish: false,
+      },
+    ],
 
     // these are a bit higher level of strictness than I like
     "@typescript-eslint/no-unsafe-argument": "off",
     "@typescript-eslint/no-unsafe-member-access": "off",
     "@typescript-eslint/no-unsafe-assignment": "off",
     "@typescript-eslint/no-unsafe-call": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unsafe-return": "off",
 
     // eslint-plugin-import:
     "import/prefer-default-export": "off",

@@ -6,7 +6,7 @@ const _wow = true;
 
 const foo = 123;
 
-let initializeAfterUse: number;
+let initializeAfterUse;
 
 const fn = () => {
   return initializeAfterUse;

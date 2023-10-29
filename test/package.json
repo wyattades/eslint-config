@@ -2,9 +2,9 @@
   "name": "test-root",
   "private": true,
   "dependencies": {
-    "react": "whatever"
+    "react": "*"
   },
   "devDependencies": {
-    "@types/react": "whatever"
+    "@types/react": "*"
   }
 }
