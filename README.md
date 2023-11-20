@@ -1,14 +1,18 @@
 # @wyattades/eslint-config
 
-## ESLint configuration for TypeScript, Prettier, React, Jest
+> ESLint configuration for TypeScript, Prettier, React, Jest
 
-This the base [ESLint](https://eslint.org/) configuration I use in personal projects.
+This the base [ESLint](https://eslint.org) configuration I use in personal projects.
 
-✔ Extends the popular [Airbnb Style Guide](https://github.com/airbnb/javascript)
+✔ Maximum _reasonable™️_ Typescript strictness
 
-✔ Uses [Prettier](https://prettier.io/) for code formatting
+✔ Relying on [Prettier](https://prettier.io) as much as possible
 
-✔ Provides additional linting for [Jest](https://jestjs.io/), [React](https://reactjs.org/)
+✔ Supports [React](https://reactjs.org)
+
+✔ Strict accessibility requirements via [JSX a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y)
+
+✔ Supports [Jest](https://jestjs.io)
 
 ✔ Supports nested project directories with global imports
 
@@ -17,13 +21,13 @@ This the base [ESLint](https://eslint.org/) configuration I use in personal proj
 1. Install the package and its minimum required peer dependencies:
 
    ```bash
-   yarn add -D @wyattades/eslint-config eslint prettier
+   pnpm add -D @wyattades/eslint-config eslint prettier
    ```
 
    Additional packages are _optional_:
 
    ```bash
-   yarn add react react-dom typescript jest
+   pnpm add react react-dom typescript jest
    ```
 
 2. Extend this package in your [ESLint configuration](https://eslint.org/docs/user-guide/configuring):
@@ -43,6 +47,21 @@ This the base [ESLint](https://eslint.org/) configuration I use in personal proj
      }
    }
    ```
+
+3. (Optional) Auto-organize imports via [prettier-plugin-organize-imports](https://github.com/simonhaenisch/prettier-plugin-organize-imports)
+   ```sh
+   pnpm add prettier-plugin-organize-imports
+   ```
+   .prettierrc
+   ```json
+   {
+     "plugins": ["prettier-plugin-organize-imports"]
+   }
+   ```
+
+## Disclaimer
+
+This package is intended for my own projects. I tend to update the rules whenever I learn new best practices, so new minor versions may introduce breaking changes.
 
 ---
 

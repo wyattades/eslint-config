@@ -40,14 +40,17 @@ module.exports = {
     "@typescript-eslint/no-unused-vars": [
       "warn",
       {
+        args: "all", // default is "after-used"
         argsIgnorePattern: "^_",
-        varsIgnorePattern: "^_[^$]",
+        varsIgnorePattern: "^_[^$]", // still warn about unused `_`, like lodash
       },
     ],
     "@typescript-eslint/no-loop-func": "off",
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/lines-between-class-members": "off",
+    "@typescript-eslint/class-literal-property-style": "off",
     "@typescript-eslint/consistent-type-definitions": ["warn", "type"],
+    "@typescript-eslint/consistent-type-imports": "warn",
     "@typescript-eslint/restrict-template-expressions": [
       "error",
       {
@@ -57,13 +60,23 @@ module.exports = {
         allowNullish: false,
       },
     ],
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      {
+        checksVoidReturn: {
+          arguments: false,
+          attributes: false,
+        },
+      },
+    ],
+    "@typescript-eslint/prefer-nullish-coalescing": "off",
+    "@typescript-eslint/no-explicit-any": "warn",
 
     // these are a bit higher level of strictness than I like
     "@typescript-eslint/no-unsafe-argument": "off",
     "@typescript-eslint/no-unsafe-member-access": "off",
     "@typescript-eslint/no-unsafe-assignment": "off",
     "@typescript-eslint/no-unsafe-call": "off",
-    "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-unsafe-return": "off",
 
     // eslint-plugin-import:
@@ -90,7 +103,7 @@ module.exports = {
     ],
 
     // react:
-    "react/prop-types": "off", // this is debatable, but I just don't like the `prop-types` library
+    "react/prop-types": "off",
     "react/react-in-jsx-scope": "off", // obsolete b/c of: `@babel/preset-react", { "runtime": "automatic" }`
     "react/function-component-definition": "off", // allow anonymous function components
     "react/jsx-no-useless-fragment": "off",
@@ -101,16 +114,12 @@ module.exports = {
     "react/no-unused-state": "warn",
     "react/no-array-index-key": "off",
     "react/jsx-no-constructed-context-values": "off", // TODO
-    "react/no-unstable-nested-components": [
-      "error",
-      {
-        allowAsProps: true,
-      },
-    ],
+    "react/no-unstable-nested-components": ["error", { allowAsProps: true }],
     "react/destructuring-assignment": "off",
     "react/no-unused-prop-types": "off",
     "react/no-danger": "off",
     "react/sort-comp": "off",
+    "react/no-unknown-property": ["error", { ignore: ["jsx"] }], // allow `styled-jsx` lib e.g. `<style jsx>...</style>`
 
     // a11y
     "jsx-a11y/label-has-associated-control": [
