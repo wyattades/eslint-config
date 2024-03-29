@@ -1,3 +1,4 @@
+/** @type {import("eslint").ESLint.ConfigData} */
 module.exports = {
   extends: [
     "eslint:recommended",
@@ -85,13 +86,8 @@ module.exports = {
     "import/extensions": "off",
     "import/no-duplicates": "error",
     "import/newline-after-import": "warn",
-    "import/order": [
-      "warn",
-      {
-        groups: [["builtin", "external"], "internal"],
-        "newlines-between": "always-and-inside-groups",
-      },
-    ],
+    "import/order": "off", // use prettier-plugin-orgainze-imports instead
+
     "no-restricted-exports": [
       "error",
       {

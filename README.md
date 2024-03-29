@@ -49,13 +49,27 @@ This the base [ESLint](https://eslint.org) configuration I use in personal proje
    ```
 
 3. (Optional) Auto-organize imports via [prettier-plugin-organize-imports](https://github.com/simonhaenisch/prettier-plugin-organize-imports)
+
    ```sh
    pnpm add prettier-plugin-organize-imports
    ```
+
    .prettierrc
+
    ```json
    {
      "plugins": ["prettier-plugin-organize-imports"]
+   }
+   ```
+
+   If you don't want to use this plugin, you can rely on our `eslint-plugin-import` ordering rules:
+
+   ```json
+   {
+     "extends": [
+       "@wyattades/eslint-config",
+       "@wyattades/eslint-config/import-order"
+     ]
    }
    ```
 

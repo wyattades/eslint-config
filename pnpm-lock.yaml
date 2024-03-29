@@ -87,6 +87,9 @@ importers:
 
   test:
     dependencies:
+      '@wyattades/eslint-config':
+        specifier: workspace:*
+        version: link:..
       react:
         specifier: '*'
         version: 18.2.0

@@ -1,5 +1,8 @@
 {
-  "extends": "../index.js",
+  "extends": [
+    "@wyattades/eslint-config",
+    "@wyattades/eslint-config/import-order"
+  ],
   // TODO: there may be a better way to still enable this rule in nested packages...
   "overrides": [
     {

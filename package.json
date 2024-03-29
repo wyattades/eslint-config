@@ -22,7 +22,8 @@
   "author": "Wyatt Ades <me@wyattades.com>",
   "main": "index.js",
   "files": [
-    "index.js"
+    "index.js",
+    "import-order.js"
   ],
   "scripts": {
     "test": "cd test && node ./runTests.mjs"
@@ -68,6 +69,9 @@
   },
   "peerDependenciesMeta": {
     "jest": {
+      "optional": true
+    },
+    "react": {
       "optional": true
     }
   }
