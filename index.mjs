@@ -81,6 +81,10 @@ export default [
         },
       ],
 
+      "@typescript-eslint/no-throw-literal": "off", // deprecated
+      "@typescript-eslint/only-throw-error": "error", // replaces the above
+
+      "@typescript-eslint/prefer-regexp-exec": "off",
       "@typescript-eslint/no-loop-func": "off",
       "@typescript-eslint/no-var-requires": "off",
       "@typescript-eslint/lines-between-class-members": "off",
