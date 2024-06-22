@@ -9,7 +9,7 @@ myLabel: for (const _a in {}) {
 
 const thing = { x: 0 };
 with (thing) {
-  // eslint-disable-next-line no-undef, @typescript-eslint/no-unsafe-assignment
+  // eslint-disable-next-line no-undef
   x = 1;
 }
 

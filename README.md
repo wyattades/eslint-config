@@ -27,26 +27,35 @@ This the base [ESLint](https://eslint.org) configuration I use in personal proje
    Additional packages are _optional_:
 
    ```bash
-   pnpm add react react-dom typescript jest
+   pnpm add typescript react react-dom jest
    ```
 
 2. Extend this package in your [ESLint configuration](https://eslint.org/docs/user-guide/configuring):
 
-   ```json
-   {
-     "extends": "@wyattades/eslint-config"
-   }
-   ```
+    eslint.config.mjs
+    ```js
+    import baseConfig from "@wyattades/eslint-config";
+  
+    export default [
+      ...baseConfig,
+      // ... your custom config here
+    ];
+    ```
 
-   ⚠️ If you use a TS configuration file other than the default (`tsconfig.json` under the project's root), you need to specify its path:
+   ⚠️ If you use a TS configuration file(s) other than the default (`tsconfig.json` under the project's root), you need to specify its path:
 
-   ```json
-   {
-     "parserOptions": {
-       "project": "ts/tsconfig.dev.json"
-     }
-   }
-   ```
+    ```js
+    export default [
+      ...baseConfig,
+      {
+        languageOptions: {
+          parserOptions: {
+            project: ["tsconfig.custom.json", "maybe-another/tsconfig.json"]
+          },
+        },
+      }
+    ];
+    ```
 
 3. (Optional) Auto-organize imports via [prettier-plugin-organize-imports](https://github.com/simonhaenisch/prettier-plugin-organize-imports)
 
@@ -64,14 +73,16 @@ This the base [ESLint](https://eslint.org) configuration I use in personal proje
 
    If you don't want to use this plugin, you can rely on our `eslint-plugin-import` ordering rules:
 
-   ```json
-   {
-     "extends": [
-       "@wyattades/eslint-config",
-       "@wyattades/eslint-config/import-order"
-     ]
-   }
-   ```
+    ```js
+    import baseConfig from "@wyattades/eslint-config";
+    import importOrderConfig from "@wyattades/eslint-config/import-order";
+
+    export default [
+      ...baseConfig,
+      ...importOrderConfig,
+      // ... your custom config here
+    ];
+    ```
 
 ## Disclaimer
 

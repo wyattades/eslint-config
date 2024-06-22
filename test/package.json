@@ -1,5 +1,6 @@
 {
   "name": "test-root",
+  "type": "module",
   "private": true,
   "dependencies": {
     "@wyattades/eslint-config": "workspace:*",

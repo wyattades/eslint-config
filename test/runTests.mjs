@@ -9,12 +9,15 @@ import chalk from "chalk";
 (async () => {
   const eslint = new ESLint({
     // be explicit about which config we are using
-    overrideConfigFile: path.resolve(".eslintrc"),
+    overrideConfigFile: path.resolve("eslint.config.mjs"),
   });
 
-  const globPattern = "{sources,with-nested}/*.{js,ts,jsx,tsx}";
+  const globPattern = "{sources,with-nested}/*.{js,ts,jsx,tsx,cjs,mjs}";
 
-  const expectations = glob.sync(globPattern).map((filePath) => {
+  /** @type {string[]} */
+  const files = glob.sync(globPattern);
+
+  const expectations = files.map((filePath) => {
     const absPath = path.resolve(filePath);
 
     const contents = fs.readFileSync(absPath, "utf-8");
@@ -23,7 +26,7 @@ import chalk from "chalk";
       .split("\n")
       .map((line) => {
         const m = line.match(
-          /^\s*\/\/\s*eslint-(warn|error):\s*([@\/\w-]+)\s*$/
+          /^\s*\/\/\s*eslint-(warn|error):\s*([@\/\w-]+)\s*$/,
         );
         if (m)
           return {
@@ -41,7 +44,15 @@ import chalk from "chalk";
     };
   });
 
-  const results = await eslint.lintFiles([globPattern]);
+  const results = await eslint.lintFiles(".");
+
+  if (results.some((d) => d.filePath.includes("node_modules"))) {
+    throw new Error("Failed sanity check: node_modules files in results");
+  }
+
+  if (!results.some((d) => d.filePath.endsWith(".jsx"))) {
+    throw new Error("Failed sanity check: missing .jsx files");
+  }
 
   let failed = 0,
     passed = 0;
@@ -51,17 +62,17 @@ import chalk from "chalk";
         exp.expects.length > 0
           ? _.map(
               _.countBy(exp.expects, "severity"),
-              (count, severity) => `${count} ${severity}(s)`
+              (count, severity) => `${count} ${severity}(s)`,
             ).join(", ")
           : "no problems"
-      }`
+      }`,
     );
 
     const res = results.find((r) => exp.filePath === r.filePath);
     if (!res) {
       console.error(
         chalk.bold.red("  Failed"),
-        `\n  Missing eslint results for ${exp.filePath}!`
+        `\n  Missing eslint results for ${exp.filePath}!`,
       );
       failed++;
       continue;
@@ -77,7 +88,7 @@ import chalk from "chalk";
         };
       }),
       "ruleId",
-      "severity"
+      "severity",
     );
 
     const expected = exp.expects;
@@ -85,7 +96,7 @@ import chalk from "chalk";
     if (
       !_.isEqual(
         given.map((g) => _.omit(g, "message")),
-        expected
+        expected,
       )
     ) {
       console.error(
@@ -94,7 +105,7 @@ import chalk from "chalk";
         given,
         "\n  Expected:",
         expected,
-        "\n"
+        "\n",
       );
       failed++;
     } else {
@@ -106,7 +117,7 @@ import chalk from "chalk";
   console.log(
     `\n${passed} passed. ${failed} failed. Test suite ${
       failed > 0 ? "failed" : "passed"
-    }.\n`
+    }.\n`,
   );
   if (failed > 0) {
     process.exit(1);
