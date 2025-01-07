@@ -4,9 +4,9 @@
   "private": true,
   "dependencies": {
     "@wyattades/eslint-config": "workspace:*",
-    "react": "*"
+    "react": "^19.0.0"
   },
   "devDependencies": {
-    "@types/react": "*"
+    "@types/react": "^19.0.3"
   }
 }
